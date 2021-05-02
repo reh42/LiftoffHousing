@@ -1,11 +1,14 @@
 package org.launchcode.liftoff_housing.models;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.util.Objects;
 
+@Entity
+public class HousingCommunity {
 
-public class HousingCommunities {
 
     @Id
     @GeneratedValue
@@ -13,7 +16,8 @@ public class HousingCommunities {
 
     // @NotBlank how to get validation package to work? import javax.validation.constraints.NotBlank;
 
-    private String name;
+
+    //private String name;
 
     private int unitSize;
 
@@ -23,38 +27,23 @@ public class HousingCommunities {
 
     private String notes;
 
+    @OneToOne
     private Location location;
 
-    @Override
-    public String toString() {
-        return "HousingCommunities{" +
-                "location=" + location +
-                '}';
+    public HousingCommunity(){
+
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        HousingCommunities that = (HousingCommunities) o;
-        return getId() == that.getId();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
+    public HousingCommunity(int unitSize, boolean waitListOpen, String occupantType, String notes, Location location) {
+        this.unitSize = unitSize;
+        this.waitListOpen = waitListOpen;
+        this.occupantType = occupantType;
+        this.notes = notes;
+        this.location = location;
     }
 
     public int getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getUnitSize() {
@@ -97,5 +86,23 @@ public class HousingCommunities {
         this.location = location;
     }
 
+    @Override
+    public String toString() {
+        return "HousingCommunity{" +
+                "location=" + location.getAddress() +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HousingCommunity that = (HousingCommunity) o;
+        return getId() == that.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }
