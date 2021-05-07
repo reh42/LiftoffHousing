@@ -18,6 +18,7 @@ public class Location {
     private String address;
     private double longitude;
     private double latitude;
+    private int zip;
     @OneToOne
     private HousingCommunity housingCommunity;
 
@@ -25,9 +26,13 @@ public class Location {
 
     }
 
-
-
-
+    public Location(String address, double longitude, double latitude, int zip, HousingCommunity housingCommunity) {
+        this.address = address;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.zip = zip;
+        this.housingCommunity = housingCommunity;
+    }
 
 //    public String getName() {
 //        return name;
@@ -36,6 +41,22 @@ public class Location {
 //    public void setName(String name) {
 //        this.name = name;
 //    }
+
+    public int getZip() {
+        return zip;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
+
+    public HousingCommunity getHousingCommunity() {
+        return housingCommunity;
+    }
+
+    public void setHousingCommunity(HousingCommunity housingCommunity) {
+        this.housingCommunity = housingCommunity;
+    }
 
     public String getAddress() {
         return address;

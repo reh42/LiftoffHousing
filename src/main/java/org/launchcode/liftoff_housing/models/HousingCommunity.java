@@ -17,11 +17,11 @@ public class HousingCommunity {
     // @NotBlank how to get validation package to work? import javax.validation.constraints.NotBlank;
 
 
-    //private String name;
+    private String name;
 
     private int unitSize;
 
-    private boolean waitListOpen;
+    private boolean waitList;
 
     private String occupantType;
 
@@ -34,12 +34,22 @@ public class HousingCommunity {
 
     }
 
-    public HousingCommunity(int unitSize, boolean waitListOpen, String occupantType, String notes, Location location) {
+    public HousingCommunity(int unitSize, boolean waitList, String occupantType, String notes, Location location, String name) {
         this.unitSize = unitSize;
-        this.waitListOpen = waitListOpen;
+        this.waitList = waitList;
         this.occupantType = occupantType;
         this.notes = notes;
         this.location = location;
+        this.name = name;
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getId() {
@@ -54,12 +64,12 @@ public class HousingCommunity {
         this.unitSize = unitSize;
     }
 
-    public boolean isWaitListOpen() {
-        return waitListOpen;
+    public boolean isWaitList() {
+        return waitList;
     }
 
-    public void setWaitListOpen(boolean waitListOpen) {
-        this.waitListOpen = waitListOpen;
+    public void setWaitList(boolean waitList) {
+        this.waitList = waitList;
     }
 
     public String getOccupantType() {

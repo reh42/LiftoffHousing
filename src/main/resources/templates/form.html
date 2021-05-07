@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>form</title>
-</head>
-<body>
-    <form method = 'post' >
-        <input type = 'text' name = 'name'/>
-        <input type = 'submit' value = "House Me!"/>
+<head th:replace="fragments :: head"></head>
+<body class="container">
+    <form method="post" >
+        <div class="form-group" >
+            <label>Housing Community Name</label>
+            <input type='text' th:field="${housingCommunity.name}" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Address</label>
+            <input type="text" class="form-control" th:field="${housingCommunity.location.address}">
+        </div>
+        <div class="form-group">
+            <label>Zip</label>
+            <input type="text" class="form-control" th:field="${housingCommunity.location.zip}">
+        </div>
+
+        <div class="form-group">
+            <label>Unit Size</label>
+            <input type='text' th:field="${housingCommunity.unitSize}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Occupant Type</label>
+            <input type='text' th:field="${housingCommunity.occupantType}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" th:field="${housingCommunity.notes}" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+         <div class="form-check">
+             <input class="form-check-input" type="checkbox" value=""  th:checked="${housingCommunity.waitList}"/>
+             <label class="form-check-label" >Wait List Open</label>
+         </div>
+        </div>
+        <button type="submit" class="btn btb-primary">Submit</button>
+<!--button is not working right. i do not know why-->
     </form>
 </body>
 </html>
