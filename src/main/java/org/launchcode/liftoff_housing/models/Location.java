@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import java.util.Objects;
 
+
 @Entity
 public class Location {
 
@@ -19,7 +20,7 @@ public class Location {
     private double longitude;
     private double latitude;
     private int zip;
-    @OneToOne
+    @OneToOne(mappedBy = "location")
     private HousingCommunity housingCommunity;
 
     public Location(){
@@ -98,6 +99,7 @@ public class Location {
     public int hashCode() {
         return Objects.hash(getId());
     }
+
 
     @Override
     public String toString() {

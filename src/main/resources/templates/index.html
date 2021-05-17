@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+    <p th:unless="${housingCommunities} and ${housingCommunities.size()}">no housing communities saved</p>
+    <div class="container body-content">
+        <h2>Housing Communities</h2>
+        <ul>
+            <li th:each="housingCommunity : ${housingCommunities}">
+                <a th:text="${housingCommunity.name}"></a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

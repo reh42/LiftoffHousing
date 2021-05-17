@@ -16,6 +16,12 @@ public class HousingCommunities {
     @Autowired
     private HousingCommunityRepository housingCommunityRepository;
 
+    @GetMapping ("index")
+    public String index(Model model) {
+        //model.addAttribute("title", "All Housing");
+        model.addAttribute("housingCommunities", housingCommunityRepository.findAll());
+        return "index";
+    }
     //display the form: static view
 //    @GetMapping("form")
 //    public String displayForm() {
@@ -28,9 +34,15 @@ public class HousingCommunities {
         return "form";
     }
 
-    @PostMapping
+    @PostMapping("form")
     public String processForm(@ModelAttribute HousingCommunity newHousingCommunity, Model model ){
         housingCommunityRepository.save(newHousingCommunity);
-        return "redirect:";
+        return "redirect:index";
     }
+
+//    @GetMapping("complete")
+//    public String displayCompletedEntries(Model model) {
+//        model.addAttribute()
+//    }
+
 }

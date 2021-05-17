@@ -1,9 +1,6 @@
 package org.launchcode.liftoff_housing.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -27,7 +24,7 @@ public class HousingCommunity {
 
     private String notes;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Location location;
 
     public HousingCommunity(){
