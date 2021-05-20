@@ -40,9 +40,9 @@ public class HousingCommunities {
         return "redirect:index";
     }
 
-//    @GetMapping("complete")
-//    public String displayCompletedEntries(Model model) {
-//        model.addAttribute()
-//    }
+    @GetMapping("home")
+    public String displayHomeMenu(Model model) {
+        return "home";
+    }
 
 }

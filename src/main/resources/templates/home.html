@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+    <nav th:replace="fragments :: page-header"></nav>
+    <div class="container">
+        <h2>Welcome to Gateway Housing First's Housing Manager</h2>
+        <h4>Select the options below to update the Housing Communities Map</h4>
+        <a class="btn btn-primary btn-lg btn-block" th:href="@{/form}" role="button">Create New Housing Community</a>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Edit Existing Housing Community</button>
+    </div>
+    <div class="container">
+        <div class="container body-content">
+            <h2>Housing Communities</h2>
+            <p th:unless="${housingCommunities} and ${housingCommunities.size()}">no housing communities saved</p>
+            <ul>
+                <li th:each="housingCommunity : ${housingCommunities}">
+                    <a th:text="${housingCommunity.name}"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

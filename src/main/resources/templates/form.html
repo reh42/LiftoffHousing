@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container">
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div class="container">
     <form method="post" action= >
         <div class="form-group" >
             <label>Housing Community Name</label>
@@ -38,5 +40,6 @@
         <button type="submit" class="btn btb-primary">Submit</button>
 <!--button is not working right. i do not know why-->
     </form>
+</div>
 </body>
 </html>
